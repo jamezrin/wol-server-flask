@@ -16,10 +16,12 @@ body {
 
 .flash i {
     margin-right: 10px;
+    margin-left: -5px;
 }
 
-.mac_form {
-
+li {
+    margin: 0;
+    padding: 1px;
 }
 
 .wol_app {

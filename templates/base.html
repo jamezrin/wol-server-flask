@@ -13,7 +13,12 @@
             {% for message in messages %}
                 <li class="notice flash">
                     <i class="icon-warning-sign icon-large"></i>
-                    {{ message }}
+                    <ul>
+                        {{ message }}
+                        {% for mac in valid_macs %}
+                            <li> {{ mac }} </li>
+                        {% endfor %}
+                    </ul>
                     <a href="#close" class="icon-remove"></a>
                 </li>
             {% endfor %}

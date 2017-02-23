@@ -6,7 +6,6 @@ from wakeonlan import wol
 from wtforms.fields.core import StringField
 from wtforms.validators import InputRequired, ValidationError
 from flask_wtf import Form
-import random
 from ieeemac import is_mac
 
 app = Flask(__name__)
@@ -31,10 +30,10 @@ def index():
             if mac is '':
                 msg = 'Please enter a mac address.'
             else:
-                msg = 'Please provide a valid mac address. Example: %s' % (random.choice(valid_macs))
+                msg = 'Please provide a valid mac address. Valid Examples: '
             flash(msg)
 
-    return render_template('mac.html', form=form)
+    return render_template('mac.html', form=form, valid_macs=valid_macs)
 
 
 @app.route('/api/wake/<mac>')
@@ -59,4 +58,4 @@ class MacForm(Form):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
