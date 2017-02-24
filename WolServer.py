@@ -11,10 +11,12 @@ from ieeemac import is_mac
 app = Flask(__name__)
 app.secret_key = b'r\x9du\xdc\x8b\x12\xe8\x12\xa5\xa7]s\xc96\xfe\x1bmA\xc0\x1a\xb5\x94Z\xfd'
 
-valid_macs = ('FF-FF-FF-FF-FF-FF',  # windows
-              'FF:FF:FF:FF:FF:FF',  # unix
-              'FFFF.FFFF.FFFF',  # cisco
-              'FFFFFFFFFFFF')  # bare
+valid_macs = (
+    'FF-FF-FF-FF-FF-FF',  # windows
+    'FF:FF:FF:FF:FF:FF',  # unix
+    'FFFF.FFFF.FFFF',  # cisco
+    'FFFFFFFFFFFF'  # bare
+)
 
 
 @app.route('/', methods=('GET', 'POST'))
@@ -45,9 +47,7 @@ def api_wake(mac):
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 class MacForm(Form):
     mac = StringField('FF:FF:FF:FF:FF:FF', validators=[InputRequired()])

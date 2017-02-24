@@ -2,8 +2,8 @@
 <title>WakeMagic</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/99lime/0.94/js/kickstart.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/99lime/0.94/css/kickstart.css">
-
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -19,7 +19,7 @@
                             <li> {{ mac }} </li>
                         {% endfor %}
                     </ul>
-                    <a href="#close" class="icon-remove"></a>
+                    <a href="" class="icon-remove"></a>
                 </li>
             {% endfor %}
         </ul>
