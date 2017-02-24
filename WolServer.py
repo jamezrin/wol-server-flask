@@ -30,12 +30,12 @@ def index():
             flash("Sent magic packet to: %s" % mac)
         else:
             if mac is '':
-                msg = 'Please enter a mac address.'
+                flash('Please enter a mac address.')
             else:
-                msg = 'Please provide a valid mac address. Valid Examples: '
-            flash(msg)
+                flash('Please provide a valid mac address. Valid Examples:')
+                return render_template('mac.html', form=form, macs=valid_macs)
 
-    return render_template('mac.html', form=form, valid_macs=valid_macs)
+    return render_template('mac.html', form=form)
 
 
 @app.route('/api/wake/<mac>')
