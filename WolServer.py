@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import logging, logging.config, yaml
 from flask import Flask, render_template, send_from_directory, flash, request
 from wakeonlan import wol
 from wtforms.fields.core import StringField
@@ -60,4 +61,5 @@ class MacForm(Form):
 
 
 if __name__ == '__main__':
+    logging.config.dictConfig(yaml.load(open('logging.conf')))
     app.run(debug=True, host='0.0.0.0')
